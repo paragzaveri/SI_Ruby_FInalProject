@@ -14,7 +14,14 @@ class Overall
 	#NBA
 	###############################################################################################################################################################################################################################################################################################################################################		
 		@nba_eastern_name = "Eastern Conference"
+		@nba_atlantic_eastern_name = "Atlantic Divison"
+		@nba_central_eastern_name = "Central Division"
+		@nba_southeast_eastern_name = "Southeast Divison"
+
 		@nba_western_name = "Western Conference"
+		@nba_northwest_western_name = "Northwest Division"
+		@nba_pacific_western_name = "Pacific Division"
+		@nba_southwest_western_name = "Southwest Division"	
 		@nba_name = "National Basketball Association"
 
 		@nba_eastern_array = ["Boston Celtics","Brooklyn Nets","New York Knicks","Philadelphia 76ers","Toronto Raptors","Chicago Bulls","Cleveland Cavaliers","Detroit Pistons","Indiana Pacers","Milwaukee Bucks","Atlanta Hawks","Charlotte Hornets","Miami Heat","Orlando Magic","Washington Wizards"]
@@ -63,23 +70,47 @@ class Overall
 		# 	"Washington Wizards" => [0,0]
 		# }
 
-		@nba_western_hash = {
-			"Dallas Mavericks" => [0,0],
-			"Houston Rockets" => [0,0],
-			"Memphis Grizzlies" => [0,0],
-			"New Orleans Pelicans" => [0,0],
-			"San Antonio Spurs" => [0,0],
+		@nba_northwest_western_hash = {
 			"Denver Nuggets" => [0,0],
 			"Minnesota Timberwolves" => [0,0],
 			"Oklahoma City Thunder" => [0,0],
 			"Portland Trail Blazers" => [0,0],
-			"Utah Jazz" => [0,0],
+			"Utah Jazz" => [0,0]
+		}
+
+		@nba_pacific_western_hash = {
 			"Golden State Warriors" => [0,0],
 			"Los Angeles Clippers" => [0,0],
 			"Los Angeles Lakers" => [0,0],
 			"Phoenix Suns" => [0,0],
 			"Sacramento Kings" => [0,0]
 		}
+
+		@nba_southwest_western_hash = {
+			"Dallas Mavericks" => [0,0],
+			"Houston Rockets" => [0,0],
+			"Memphis Grizzlies" => [0,0],
+			"New Orleans Pelicans" => [0,0],
+			"San Antonio Spurs" => [0,0]
+		}
+		@nba_western_hash = @nba_northwest_western_hash.merge(@nba_pacific_western_hash).merge(@nba_southwest_western_hash)
+		# @nba_western_hash = {
+		# 	"Dallas Mavericks" => [0,0],
+		# 	"Houston Rockets" => [0,0],
+		# 	"Memphis Grizzlies" => [0,0],
+		# 	"New Orleans Pelicans" => [0,0],
+		# 	"San Antonio Spurs" => [0,0],
+		# 	"Denver Nuggets" => [0,0],
+		# 	"Minnesota Timberwolves" => [0,0],
+		# 	"Oklahoma City Thunder" => [0,0],
+		# 	"Portland Trail Blazers" => [0,0],
+		# 	"Utah Jazz" => [0,0],
+		# 	"Golden State Warriors" => [0,0],
+		# 	"Los Angeles Clippers" => [0,0],
+		# 	"Los Angeles Lakers" => [0,0],
+		# 	"Phoenix Suns" => [0,0],
+		# 	"Sacramento Kings" => [0,0]
+		# }
 
 		@nba_game_count = 0
 
@@ -94,7 +125,7 @@ class Overall
 		@nfl_afc_array = ["Buffalo Bills","Miami Dolphins","New England Patriots","New York Jets","Baltimore Ravens","Cincinnati Bengals","Cleveland Browns","Pittsburgh Steelers","Houston Texans","Indianapolis Colts","Jacksonville Jaguars","Tennessee Titans","Denver Broncos","Kansas City Chiefs","Oakland Raiders","San Diego Chargers"]
 		@nfl_nfc_array = ["Dallas Cowboys","New York Giants","Philadelphia Eagles","Washington Redskins","Chicago Bears","Detroit Lions","Green Bay Packers","Minnesota Vikings","Atlanta Falcons","Carolina Panthers","New Orleans Saints","Tampa Bay Buccaneers","Arizona Cardinals","St. Louis Rams","San Francisco 49ers","Seattle Seahawks"]
 
-
+		
 
 		@nfl_afc_hash = {
 			"Buffalo Bills" => [0,0,0],
@@ -316,7 +347,7 @@ class Overall
 			nba
 		when user_input == 4
 			puts "Printing Standings..."
-			nba_print_league_standings(@nba_name,@nba_eastern_name,@nba_western_name,@nba_eastern_hash,@nba_western_hash)
+			nba_print_league_standings(@nba_name,@nba_eastern_name,@nba_western_name,@nba_atlantic_eastern_name,@nba_central_eastern_name,@nba_southeast_eastern_name,@nba_northwest_western_name,@nba_pacific_western_name,@nba_southwest_western_name,@nba_atlantic_eastern_hash,@nba_central_eastern_hash,@nba_southeast_eastern_hash,@nba_northwest_western_hash,@nba_pacific_western_hash,@nba_southwest_western_hash)
 			nba
 		when user_input == 5
 			puts "Switching Sports League..."

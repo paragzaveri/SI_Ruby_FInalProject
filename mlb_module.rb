@@ -18,11 +18,11 @@ module MajorLeagueBaseball
 				second_team_score = rand(10)
 				print "#{second_team_score}"
 
-				mlb_simulate_season(league_1,league_2) if (first_team_score == second_team_score)	
+				#mlb_simulate_season(league_1,league_2) if (first_team_score == second_team_score)	
 				mlb_calculate_interleague_standings(first_team,second_team,first_team_score,second_team_score,league_1,league_2)
 				@mlb_game_count += 1		
 			else
-				mlb_simulate_season(league_1,league_2)
+				#mlb_simulate_season(league_1,league_2)
 			end
 		end	
 	end

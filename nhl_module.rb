@@ -23,11 +23,11 @@ module NationalHockeyLeague
 				second_team_score = rand(10)
 				print "#{second_team_score}"
 
-	
+				#nhl_simulate_season(league) if first_team_score == second_team_score	
 				nhl_calculate_conference_standings(first_team,second_team,first_team_score,second_team_score,league)
 				@nhl_game_count += 1		
 			else
-				nhl_simulate_season(league)
+				#nhl_simulate_season(league)
 			end
 		end	
 	end

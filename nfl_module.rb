@@ -22,7 +22,7 @@ module NationalFootballLeague
 				nfl_calculate_league_standings(first_team,second_team,first_team_score,second_team_score,league_1,league_2)
 					
 			else
-				nfl_simulate_season(league_1,league_2)
+				#nfl_simulate_season(league_1,league_2)
 			end
 		end	
 	end
