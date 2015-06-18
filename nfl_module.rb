@@ -18,9 +18,9 @@ module NationalFootballLeague
 				second_team_score = rand(75)
 				print "#{second_team_score}"
 
-	
-				nfl_calculate_league_standings(first_team,second_team,first_team_score,second_team_score,league_1,league_2)
 				@nfl_game_count += 1		
+				nfl_calculate_league_standings(first_team,second_team,first_team_score,second_team_score,league_1,league_2)
+					
 			else
 				nfl_simulate_season(league_1,league_2)
 			end
@@ -45,9 +45,9 @@ module NationalFootballLeague
 			print "#{second_team}: "
 			second_team_score = gets.chomp.to_i
 		
-
-			nfl_calculate_conference_standings(first_team,second_team,first_team_score,second_team_score,league)
 			@nfl_game_count += 1
+			nfl_calculate_conference_standings(first_team,second_team,first_team_score,second_team_score,league)
+			
 		else
 			puts "Sorry teams have played 16 games already this season.  Try Again?"
 		end
@@ -69,8 +69,9 @@ module NationalFootballLeague
 			print "#{second_team}: "
 			second_team_score = gets.chomp.to_i
 	
+			@nfl_game_count += 1
 			nfl_calculate_league_standings(first_team,second_team,first_team_score,second_team_score,league_1,league_2)
-			@nfl_game_count += 1		
+					
 		else
 			puts "Sorry teams have played 16 games already this season.  Try Again?"
 		end

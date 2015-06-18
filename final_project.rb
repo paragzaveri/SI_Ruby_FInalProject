@@ -20,24 +20,48 @@ class Overall
 		@nba_eastern_array = ["Boston Celtics","Brooklyn Nets","New York Knicks","Philadelphia 76ers","Toronto Raptors","Chicago Bulls","Cleveland Cavaliers","Detroit Pistons","Indiana Pacers","Milwaukee Bucks","Atlanta Hawks","Charlotte Hornets","Miami Heat","Orlando Magic","Washington Wizards"]
 		@nba_western_array = ["Dallas Mavericks","Houston Rockets","Memphis Grizzlies","New Orleans Pelicans","San Antonio Spurs","Denver Nuggets","Minnesota Timberwolves","Oklahoma City Thunder","Portland Trail Blazers","Utah Jazz","Golden State Warriors","Los Angeles Clippers","Los Angeles Lakers","Phoenix Suns","Sacramento Kings"]
 		
-
-		@nba_eastern_hash = {
+		@nba_atlantic_eastern_hash = {
 			"Boston Celtics" => [0,0],
 			"Brooklyn Nets" => [0,0],
 			"New York Knicks" => [0,0],
 			"Philadelphia 76ers" => [0,0],
-			"Toronto Raptors" => [0,0],
+			"Toronto Raptors" => [0,0]
+		}
+
+		@nba_central_eastern_hash = {
 			"Chicago Bulls" => [0,0],
 			"Cleveland Cavaliers" => [0,0],
 			"Detroit Pistons" => [0,0],
 			"Indiana Pacers" => [0,0],
-			"Milwaukee Bucks" => [0,0],
+			"Milwaukee Bucks" => [0,0]
+		}
+
+		@nba_southeast_eastern_hash = {
 			"Atlanta Hawks" => [0,0],
 			"Charlotte Hornets" => [0,0],
 			"Miami Heat" => [0,0],
 			"Orlando Magic" => [0,0],
 			"Washington Wizards" => [0,0]
 		}
+
+		@nba_eastern_hash = @nba_atlantic_eastern_hash.merge(@nba_central_eastern_hash).merge(@nba_southeast_eastern_hash)
+		# @nba_eastern_hash = {
+		# 	"Boston Celtics" => [0,0],
+		# 	"Brooklyn Nets" => [0,0],
+		# 	"New York Knicks" => [0,0],
+		# 	"Philadelphia 76ers" => [0,0],
+		# 	"Toronto Raptors" => [0,0],
+		# 	"Chicago Bulls" => [0,0],
+		# 	"Cleveland Cavaliers" => [0,0],
+		# 	"Detroit Pistons" => [0,0],
+		# 	"Indiana Pacers" => [0,0],
+		# 	"Milwaukee Bucks" => [0,0],
+		# 	"Atlanta Hawks" => [0,0],
+		# 	"Charlotte Hornets" => [0,0],
+		# 	"Miami Heat" => [0,0],
+		# 	"Orlando Magic" => [0,0],
+		# 	"Washington Wizards" => [0,0]
+		# }
 
 		@nba_western_hash = {
 			"Dallas Mavericks" => [0,0],
@@ -162,7 +186,7 @@ class Overall
 			"St. Louis Blues" => [0,0,0],
 			"Winnipeg Jets" => [0,0,0]
 		}
-
+		@nhl_league_hash = @nhl_eastern_hash.merge(@nhl_western_hash)
 		@nhl_game_count = 0
 
 	###############################################################################################################################################################################################################################################################################################################################################		
@@ -372,10 +396,10 @@ class Overall
 			puts "[2]: Western Conference"
 			which_conference = gets.chomp.to_i
 			if which_conference == 1
-				nhl_generate_conference_game(@nhl_eastern_hash)
+				nhl_generate_eastern_conference_game(@nhl_eastern_hash)
 				nhl
 			elsif which_conference == 2
-				nhl_generate_conference_game(@nhl_western_hash)
+				nhl_generate_western_conference_game(@nhl_western_hash)
 				nhl
 			else
 				puts "\n Sorry not a valid input."
@@ -387,7 +411,7 @@ class Overall
 			nhl
 		when user_input == 3
 			puts "Simulating Season..."
-			nhl_simulate_season(@nhl_eastern_hash,@nhl_western_hash)
+			nhl_simulate_season(@nhl_league_hash)
 			nhl
 		when user_input == 4
 			puts "Printing Standings..."
